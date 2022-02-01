@@ -1,9 +1,10 @@
 const routes = {
   home: "/",
-  badSemanticsPlaylist: (slug = ":slug") => `/bad-semantics/playlist/${slug}`,
-  goodSemanticsPlaylist: (slug = ":slug") => `/good-semantics/playlist/${slug}`,
-  reallyAccessiblePlaylist: (slug = ":slug") =>
-    `/really-accessible/playlist/${slug}`,
+  notAccessiblePlaylist: (slug = ":slug") => `/not-accessible/playlist/${slug}`,
+  somewhatAccessiblePlaylist: (slug = ":slug") =>
+    `/somewhat-accessible/playlist/${slug}`,
+  totallyAccessiblePlaylist: (slug = ":slug") =>
+    `/totally-accessible/playlist/${slug}`,
 };
 
 export default routes;

@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 @layer components {
+  a {
+    @apply text-blue-600 underline hover:text-blue-500;
+  }
+
+  .item {
+    @apply flex mb-4 text-gray-800 no-underline hover:text-gray-800;
+  }
+
   .badge {
     @apply absolute inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none bg-gray-400 rounded-full bottom-2 right-2;
   }

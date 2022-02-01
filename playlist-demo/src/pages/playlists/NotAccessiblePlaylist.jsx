@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import Video from "../../components/Video";
 import data from "../../data";
 import routes from "../../routes";
 import PlayIcon from "../../components/PlayIcon";
+import { trackClick } from "../../helpers";
 
-const trackVideoClick = () => {};
-
-const BadSemanticsPlaylist = () => {
+const NotAccessiblePlaylist = () => {
   let { slug } = useParams();
-  const { history } = useHistory();
+  const history = useHistory();
 
   const [current, setCurrent] = useState(null);
 
@@ -18,15 +17,18 @@ const BadSemanticsPlaylist = () => {
   }, [slug]);
 
   const handleClick = (slug) => {
-    trackVideoClick();
-    history.push(routes.goodSemanticsPlaylist(slug));
+    trackClick(`playlist-item-${slug}`);
+    history.push(routes.notAccessiblePlaylist(slug));
   };
 
   if (!current) return <div>loading</div>;
 
   return (
     <div className="container mx-auto">
-      <div className="my-4 text-2xl">Bad semantics playlist</div>
+      <Link to={routes.home} className="text-blue-500">
+        Go Home
+      </Link>
+      <div className="my-4 text-2xl">Not Accessible playlist</div>
       <div className="flex">
         <div className="flex-1">
           <Video />
@@ -37,7 +39,7 @@ const BadSemanticsPlaylist = () => {
             <div
               key={item.slug}
               onClick={() => handleClick(item.slug)}
-              className="flex mb-4"
+              className="item"
             >
               <div className="relative mr-2">
                 <Video className="h-[70px]" />
@@ -59,4 +61,4 @@ const BadSemanticsPlaylist = () => {
   );
 };
 
-export default BadSemanticsPlaylist;
+export default NotAccessiblePlaylist;
