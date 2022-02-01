@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .badge {
+    @apply absolute inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none bg-gray-400 rounded-full bottom-2 right-2;
+  }
+
+  .progress-container {
+    @apply absolute bottom-0 left-0 right-0 h-1 bg-gray-400;
+  }
+
+  .progress-bar {
+    @apply h-1 bg-red-500;
+  }
+
+  .play-icon {
+    @apply absolute w-4 bottom-2 left-1 fill-gray-700 aspect-square;
+  }
+}

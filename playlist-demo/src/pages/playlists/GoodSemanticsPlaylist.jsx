@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import Video from "../../components/Video";
 import data from "../../data";
 import routes from "../../routes";
+import PlayIcon from "../../components/PlayIcon";
 
 const GoodSemanticsPlaylist = () => {
   let { slug } = useParams();
@@ -17,11 +18,11 @@ const GoodSemanticsPlaylist = () => {
 
   return (
     <div className="container mx-auto">
-      <div>Good semantics playlist</div>
+      <h1 className="my-4 text-2xl">Good semantics playlist</h1>
       <div className="flex">
         <div className="flex-1">
           <Video />
-          <h1>{current.title}</h1>
+          <h2 className="my-4 text-3xl">{current.title}</h2>
         </div>
         <ol className="w-[400px] ml-6">
           {data.map((item) => (
@@ -32,8 +33,13 @@ const GoodSemanticsPlaylist = () => {
               >
                 <div className="relative mr-2">
                   <Video className="h-[70px]" />
-                  <div className="absolute inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none bg-gray-400 rounded-full bottom-2 right-2">
-                    {item.duration}
+                  <div className="badge">{item.duration}</div>
+                  {item.slug === slug && <PlayIcon className="play-icon" />}
+                  <div className="progress-container">
+                    <div
+                      className="h-1 progress-bar"
+                      style={{ width: `${item.progress}%` }}
+                    />
                   </div>
                 </div>
                 <div>{item.title}</div>
