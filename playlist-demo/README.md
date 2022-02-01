@@ -2,7 +2,7 @@
 
 This demo contains the implementation of a simple playlist. The currently playing video is located on the left of the screen and the list with all the videos is on the right side. Each video tile contains the video title, duration, and progress information. Users can change the video by selecting it in the list.
 
-This demo is divided into **three** different implementations, considering: bad, good, and really good semantics. The purpose of this example is to understand the difference between each of these implementations.
+This demo is divided into **three** different implementations, considering going from not accessible at all, then somewhat accessible, and totally accessible. The purpose of this example is to understand the difference between each of these implementations.
 
 ### Bad semantic
 
