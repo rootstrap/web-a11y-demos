@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Video from "../../components/Video";
 import data from "../../data";
+import routes from "../../routes";
 
 const GoodSemanticsPlaylist = () => {
   let { slug } = useParams();
@@ -22,7 +23,24 @@ const GoodSemanticsPlaylist = () => {
           <Video />
           <h1>{current.title}</h1>
         </div>
-        <div className="w-[400px]">{/* TODO: playlist */}</div>
+        <ol className="w-[400px] ml-6">
+          {data.map((item) => (
+            <li key={item.slug}>
+              <Link
+                className="flex mb-4"
+                to={routes.goodSemanticsPlaylist(item.slug)}
+              >
+                <div className="relative mr-2">
+                  <Video className="h-[70px]" />
+                  <div className="absolute inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none bg-gray-400 rounded-full bottom-2 right-2">
+                    {item.duration}
+                  </div>
+                </div>
+                <div>{item.title}</div>
+              </Link>
+            </li>
+          ))}
+        </ol>
       </div>
     </div>
   );
