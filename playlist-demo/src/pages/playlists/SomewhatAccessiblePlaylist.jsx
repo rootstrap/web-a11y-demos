@@ -4,8 +4,9 @@ import Video from "../../components/Video";
 import data from "../../data";
 import routes from "../../routes";
 import PlayIcon from "../../components/PlayIcon";
+import { trackClick } from "../../helpers";
 
-const GoodSemanticsPlaylist = () => {
+const SomewhatAccessiblePlaylist = () => {
   let { slug } = useParams();
 
   const [current, setCurrent] = useState(null);
@@ -14,11 +15,14 @@ const GoodSemanticsPlaylist = () => {
     setCurrent(data.find((item) => item.slug === slug));
   }, [slug]);
 
-  if (!current) return <div>loading</div>;
+  if (!current) return <span>loading</span>;
 
   return (
     <div className="container mx-auto">
-      <h1 className="my-4 text-2xl">Good semantics playlist</h1>
+      <Link to={routes.home} className="text-blue-500 hover:text-blue-400">
+        Go Home
+      </Link>
+      <h1 className="my-4 text-2xl">Somewhat Accessible playlist</h1>
       <div className="flex">
         <div className="flex-1">
           <Video />
@@ -28,12 +32,13 @@ const GoodSemanticsPlaylist = () => {
           {data.map((item) => (
             <li key={item.slug}>
               <Link
-                className="flex mb-4"
-                to={routes.goodSemanticsPlaylist(item.slug)}
+                className="item"
+                to={routes.somewhatAccessiblePlaylist(item.slug)}
+                onClick={() => trackClick(`playlist-item-${item.slug}`)}
               >
                 <div className="relative mr-2">
                   <Video className="h-[70px]" />
-                  <div className="badge">{item.duration}</div>
+                  <span className="badge">{item.duration}</span>
                   {item.slug === slug && <PlayIcon className="play-icon" />}
                   <div className="progress-container">
                     <div
@@ -42,7 +47,7 @@ const GoodSemanticsPlaylist = () => {
                     />
                   </div>
                 </div>
-                <div>{item.title}</div>
+                <span>{item.title}</span>
               </Link>
             </li>
           ))}
@@ -52,4 +57,4 @@ const GoodSemanticsPlaylist = () => {
   );
 };
 
-export default GoodSemanticsPlaylist;
+export default SomewhatAccessiblePlaylist;

@@ -10,27 +10,18 @@ const Home = () => {
       <nav>
         <ol>
           <li>
-            <Link
-              to={routes.badSemanticsPlaylist(data[0].slug)}
-              className="text-blue-500 underline"
-            >
+            <Link to={routes.notAccessiblePlaylist(data[0].slug)}>
               Bad Semantics example
             </Link>
           </li>
           <li>
-            <Link
-              to={routes.goodSemanticsPlaylist(data[0].slug)}
-              className="text-blue-500 underline"
-            >
+            <Link to={routes.somewhatAccessiblePlaylist(data[0].slug)}>
               Good Semantics example
             </Link>
           </li>
           <li>
-            <Link
-              to={routes.reallyAccessiblePlaylist(data[0].slug)}
-              className="text-blue-500 underline"
-            >
-              Really accessible example
+            <Link to={routes.totallyAccessiblePlaylist(data[0].slug)}>
+              "Totally" accessible example
             </Link>
           </li>
         </ol>
