@@ -7,6 +7,8 @@ import PlayIcon from "../../components/PlayIcon";
 import { isWatched, trackClick } from "../../helpers";
 import { Helmet } from "react-helmet";
 import { formatDuration } from "date-fns";
+import Badge from "../../components/Badge";
+import ProgressBar from "../../components/ProgressBar";
 
 const TITLE = '"Totally" Accessible Playlist';
 const TotallyAccessiblePlaylist = () => {
@@ -28,7 +30,12 @@ const TotallyAccessiblePlaylist = () => {
         </title>
       </Helmet>
       <nav>
-        <Link to={routes.home}>Go Home</Link>
+        <Link
+          to={routes.home}
+          className="text-blue-600 underline hover:text-blue-500"
+        >
+          Go Home
+        </Link>
       </nav>
       <main>
         <h1 className="my-4 text-2xl">{TITLE}</h1>
@@ -52,30 +59,20 @@ const TotallyAccessiblePlaylist = () => {
                 return (
                   <li key={item.slug}>
                     <Link
-                      className="item hover:bg-gray-100 focus:bg-gray-100"
+                      className="flex mb-4 text-gray-800 no-underline hover:text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
                       to={routes.totallyAccessiblePlaylist(item.slug)}
                       onClick={() => trackClick(`playlist-item-${item.slug}`)}
                     >
                       <div className="relative mr-2">
                         <Video className="h-[70px]" />
-                        <span className="badge" aria-hidden>
-                          {item.duration}
-                        </span>
+                        <Badge aria-hidden>{item.duration}</Badge>
                         {item.slug === slug && (
-                          <PlayIcon
-                            className="play-icon"
-                            aria-label="Now playing - "
-                          />
+                          <PlayIcon aria-label="Now playing - " />
                         )}
-                        <div className="progress-container">
-                          <div
-                            className="h-1 progress-bar"
-                            style={{ width: `${item.progress}%` }}
-                          />
-                          {isWatched(item.progress) && (
-                            <span className="sr-only">Watched - </span>
-                          )}
-                        </div>
+                        <ProgressBar progress={item.progress} />
+                        {isWatched(item.progress) && (
+                          <span className="sr-only">Watched - </span>
+                        )}
                       </div>
                       <span></span>
                       <span>{item.title}</span>

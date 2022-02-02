@@ -5,6 +5,8 @@ import data from "../../data";
 import routes from "../../routes";
 import PlayIcon from "../../components/PlayIcon";
 import { trackClick } from "../../helpers";
+import Badge from "../../components/Badge";
+import ProgressBar from "../../components/ProgressBar";
 
 const SomewhatAccessiblePlaylist = () => {
   let { slug } = useParams();
@@ -32,20 +34,15 @@ const SomewhatAccessiblePlaylist = () => {
           {data.map((item) => (
             <li key={item.slug}>
               <Link
-                className="item"
+                className="flex mb-4 text-gray-800 no-underline hover:text-gray-800"
                 to={routes.somewhatAccessiblePlaylist(item.slug)}
                 onClick={() => trackClick(`playlist-item-${item.slug}`)}
               >
                 <div className="relative mr-2">
                   <Video className="h-[70px]" />
-                  <span className="badge">{item.duration}</span>
-                  {item.slug === slug && <PlayIcon className="play-icon" />}
-                  <div className="progress-container">
-                    <div
-                      className="h-1 progress-bar"
-                      style={{ width: `${item.progress}%` }}
-                    />
-                  </div>
+                  <Badge>{item.duration}</Badge>
+                  {item.slug === slug && <PlayIcon />}
+                  <ProgressBar progress={item.progress} />
                 </div>
                 <span>{item.title}</span>
               </Link>

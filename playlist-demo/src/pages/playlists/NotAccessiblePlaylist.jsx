@@ -5,6 +5,8 @@ import data from "../../data";
 import routes from "../../routes";
 import PlayIcon from "../../components/PlayIcon";
 import { trackClick } from "../../helpers";
+import Badge from "../../components/Badge";
+import ProgressBar from "../../components/ProgressBar";
 
 const NotAccessiblePlaylist = () => {
   let { slug } = useParams();
@@ -39,20 +41,15 @@ const NotAccessiblePlaylist = () => {
             <div
               key={item.slug}
               onClick={() => handleClick(item.slug)}
-              className="item"
+              className="flex mb-4 text-gray-800 no-underline hover:text-gray-800"
             >
               <div className="relative mr-2">
                 <Video className="h-[70px]" />
-                <div className="badge">{item.duration}</div>
-                {item.slug === slug && <PlayIcon className="play-icon" />}
-                <div className="progress-container">
-                  <div
-                    className="h-1 progress-bar"
-                    style={{ width: `${item.progress}%` }}
-                  />
-                </div>
+                <Badge>{item.duration}</Badge>
+                {item.slug === slug && <PlayIcon />}
+                <ProgressBar progress={item.progress} />
+                <div>{item.title}</div>
               </div>
-              <div>{item.title}</div>
             </div>
           ))}
         </div>
