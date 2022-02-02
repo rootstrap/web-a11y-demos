@@ -14,7 +14,7 @@ const Home = () => {
               to={routes.notAccessiblePlaylist(data[0].slug)}
               className="text-blue-600 underline hover:text-blue-500"
             >
-              Bad Semantics example
+              Not Accessible Example
             </Link>
           </li>
           <li>
@@ -22,7 +22,7 @@ const Home = () => {
               to={routes.somewhatAccessiblePlaylist(data[0].slug)}
               className="text-blue-600 underline hover:text-blue-500"
             >
-              Good Semantics example
+              Somewhat Accessible Example
             </Link>
           </li>
           <li>

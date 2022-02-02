@@ -4,6 +4,18 @@ This demo contains the implementation of a simple playlist. The "currently playi
 
 This demo is divided into **three** different implementations, considering going from not accessible at all, then somewhat accessible, and totally accessible. The purpose of this example is to understand the difference between each of these implementations.
 
+## View the example in our code sandbox
+
+Visit [CodeSandbox demo](https://codesandbox.io/s/github/rootstrap/web-a11y-demos/tree/master/playlist-demo)
+
+### Run de example locally
+
+1. Install dependencies with `npm install`
+2. Start the project with `npm start`
+3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## Explanation
+
 ### Not accessible
 
 Structural, semantic HTML is the key starting point toward good accessibility practices. When a screen reader, or any sort of assistive device scans a web page, it gets information about the DOM, or the HTML structure of the page. No styles or JavaScript will be read by a screen reader. In this example we found the following:
@@ -31,13 +43,3 @@ There are several mechanisms that can be used for hiding content. In this exampl
 - Addition of visual information using `sr-only` class name.
 - `Helmet` to manage the document's head section.
 - Wrapping buttons that correspond to navigation using `<nav>`
-
-## View the example in our code sandbox
-
-Visit [link]()
-
-### Run de example locally
-
-1. Install dependencies with `npm install`
-2. Start the project with `npm start`
-3. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
