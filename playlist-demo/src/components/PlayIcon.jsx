@@ -1,7 +1,12 @@
 import * as React from "react";
+import cn from "classnames";
 
-const PlayIcon = (props) => (
+const PlayIcon = ({ className, props }) => (
   <svg
+    className={cn(
+      "absolute w-4 bottom-2 left-1 fill-gray-700 aspect-square",
+      className
+    )}
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 17.804 17.804"
     style={{
