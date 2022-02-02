@@ -19,7 +19,18 @@ When we write semantically correct HTML, we’re letting the browser know what t
 - Good semantic for list creation using `<ol>` and wrapping each item with `<li>` tags.
 - Correct implementation on video links using `<a>` tags. Links are now accessible by using the keyboard or screen reader. But, there are still several improvements that can be made.
 
-### Totally accessible
+### "Totally" accessible
+
+Having semantically correct HTML allows assistive technology to easily do its job, but is that enough? There are occasional instances, for example, where content should be made available to screen reader users but hidden from sighted users. In the vast majority of cases, content that is available visually should be available to screen reader users, and vice versa.
+There are a few cases where information or meaning is apparent visually but may not be apparent to screen reader users. In these cases, it may be appropriate to cause content to be read by a screen reader, but have the content remain invisible to sighted users.
+
+There are several mechanisms that can be used for hiding content. In this example `sr-only` class is used. We can find the following improvements:
+
+- Use of `aria-label` to give more context to screen readers.
+- Use of `aria-hidden` to hide elements from screen readers.
+- Addition of visual information using `sr-only` class name.
+- `Helmet` to manage the document's head section.
+- Wrapping buttons that correspond to navigation using `<nav>`
 
 ## View the example in our code sandbox
 
