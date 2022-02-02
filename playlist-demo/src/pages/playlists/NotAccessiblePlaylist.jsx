@@ -48,8 +48,8 @@ const NotAccessiblePlaylist = () => {
                 <Badge>{item.duration}</Badge>
                 {item.slug === slug && <PlayIcon />}
                 <ProgressBar progress={item.progress} />
-                <div>{item.title}</div>
               </div>
+              <div>{item.title}</div>
             </div>
           ))}
         </div>
