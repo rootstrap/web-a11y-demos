@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useParams, useHistory, Link } from "react-router-dom";
+import React from "react";
+import { useHistory, Link } from "react-router-dom";
 import Video from "../../components/Video";
 import data from "../../data";
 import routes from "../../routes";
@@ -7,16 +7,12 @@ import PlayIcon from "../../components/PlayIcon";
 import { trackClick } from "../../helpers";
 import Badge from "../../components/Badge";
 import ProgressBar from "../../components/ProgressBar";
+import useGetCurrentFromParams from "../../hooks/useGetCurrentFromParams";
 
 const NotAccessiblePlaylist = () => {
-  let { slug } = useParams();
   const history = useHistory();
 
-  const [current, setCurrent] = useState(null);
-
-  useEffect(() => {
-    setCurrent(data.find((item) => item.slug === slug));
-  }, [slug]);
+  const current = useGetCurrentFromParams();
 
   const handleClick = (slug) => {
     trackClick(`playlist-item-${slug}`);
@@ -26,7 +22,7 @@ const NotAccessiblePlaylist = () => {
   if (!current) return <div>loading</div>;
 
   return (
-    <div className="container mx-auto">
+    <div className="container my-4 mx-auto">
       <Link to={routes.home} className="text-blue-500">
         Go Home
       </Link>
@@ -46,7 +42,7 @@ const NotAccessiblePlaylist = () => {
               <div className="relative mr-2">
                 <Video className="h-[70px]" />
                 <Badge>{item.duration}</Badge>
-                {item.slug === slug && <PlayIcon />}
+                {item.slug === current.slug && <PlayIcon />}
                 <ProgressBar progress={item.progress} />
               </div>
               <div>{item.title}</div>
