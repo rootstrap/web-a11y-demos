@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import Video from "../../components/Video";
 import data from "../../data";
 import routes from "../../routes";
@@ -9,19 +9,19 @@ import { Helmet } from "react-helmet";
 import { formatDuration } from "date-fns";
 import Badge from "../../components/Badge";
 import ProgressBar from "../../components/ProgressBar";
+import useGetCurrentFromParams from "../../hooks/useGetCurrentFromParams";
 
 const TITLE = '"Totally" Accessible Playlist';
+
 const TotallyAccessiblePlaylist = () => {
-  let { slug } = useParams();
+  const current = useGetCurrentFromParams();
 
-  const [current, setCurrent] = useState(null);
-
-  useEffect(() => {
-    setCurrent(data.find((item) => item.slug === slug));
-  }, [slug]);
+  const handleClick = (slug) => {
+    trackClick(`playlist-item-${slug}`);
+  };
 
   return (
-    <div className="container mx-auto">
+    <div className="container my-4 mx-auto">
       <Helmet>
         <title>
           {current?.title
@@ -61,23 +61,31 @@ const TotallyAccessiblePlaylist = () => {
                     <Link
                       className="flex mb-4 text-gray-800 no-underline hover:text-gray-800 hover:bg-gray-100 focus:bg-gray-100"
                       to={routes.totallyAccessiblePlaylist(item.slug)}
-                      onClick={() => trackClick(`playlist-item-${item.slug}`)}
+                      onClick={() => handleClick(item.slug)}
                     >
                       <div className="relative mr-2">
                         <Video className="h-[70px]" />
                         <Badge aria-hidden>{item.duration}</Badge>
-                        {item.slug === slug && (
-                          <PlayIcon aria-label="Now playing - " />
+                        {item.slug === current.slug && (
+                          <PlayIcon aria-label="Now playing, " />
                         )}
                         <ProgressBar progress={item.progress} />
                         {isWatched(item.progress) && (
-                          <span className="sr-only">Watched - </span>
+                          <span className="sr-only">Watched, </span>
                         )}
                       </div>
                       <span></span>
-                      <span>{item.title}</span>
+                      <span>
+                        {item.title}
+                        <span className="sr-only">,</span>
+                      </span>
+                      {!!item.progress && (
+                        <span className="sr-only">
+                          Progress: {item.progress}%,
+                        </span>
+                      )}
                       <span className="sr-only">
-                        - Duration: {formattedDuration}
+                        Duration: {formattedDuration}
                       </span>
                     </Link>
                   </li>

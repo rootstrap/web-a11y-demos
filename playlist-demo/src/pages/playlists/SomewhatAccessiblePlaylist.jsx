@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import Video from "../../components/Video";
 import data from "../../data";
 import routes from "../../routes";
@@ -7,20 +7,19 @@ import PlayIcon from "../../components/PlayIcon";
 import { trackClick } from "../../helpers";
 import Badge from "../../components/Badge";
 import ProgressBar from "../../components/ProgressBar";
+import useGetCurrentFromParams from "../../hooks/useGetCurrentFromParams";
 
 const SomewhatAccessiblePlaylist = () => {
-  let { slug } = useParams();
+  const current = useGetCurrentFromParams();
 
-  const [current, setCurrent] = useState(null);
-
-  useEffect(() => {
-    setCurrent(data.find((item) => item.slug === slug));
-  }, [slug]);
+  const handleClick = (slug) => {
+    trackClick(`playlist-item-${slug}`);
+  };
 
   if (!current) return <span>loading</span>;
 
   return (
-    <div className="container mx-auto">
+    <div className="container my-4 mx-auto">
       <Link to={routes.home} className="text-blue-500 hover:text-blue-400">
         Go Home
       </Link>
@@ -36,12 +35,12 @@ const SomewhatAccessiblePlaylist = () => {
               <Link
                 className="flex mb-4 text-gray-800 no-underline hover:text-gray-800"
                 to={routes.somewhatAccessiblePlaylist(item.slug)}
-                onClick={() => trackClick(`playlist-item-${item.slug}`)}
+                onClick={() => handleClick(item.slug)}
               >
                 <div className="relative mr-2">
                   <Video className="h-[70px]" />
                   <Badge>{item.duration}</Badge>
-                  {item.slug === slug && <PlayIcon />}
+                  {item.slug === current.slug && <PlayIcon />}
                   <ProgressBar progress={item.progress} />
                 </div>
                 <span>{item.title}</span>
