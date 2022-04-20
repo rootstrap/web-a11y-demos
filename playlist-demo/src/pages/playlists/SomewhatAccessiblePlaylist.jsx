@@ -19,7 +19,7 @@ const SomewhatAccessiblePlaylist = () => {
   if (!current) return <span>loading</span>;
 
   return (
-    <div className="container my-4 mx-auto">
+    <div className="container my-4 px-4 lg:px-0 mx-auto">
       <Link to={routes.home} className="text-blue-500 hover:text-blue-400">
         Go Home
       </Link>
@@ -29,7 +29,7 @@ const SomewhatAccessiblePlaylist = () => {
           <Video />
           <h2 className="my-4 text-3xl">{current.title}</h2>
         </div>
-        <ol className="w-[400px] ml-6">
+        <ol className="w-[200px] md:w-[300px] lg:w-[400px] ml-6">
           {data.map((item) => (
             <li key={item.slug}>
               <Link

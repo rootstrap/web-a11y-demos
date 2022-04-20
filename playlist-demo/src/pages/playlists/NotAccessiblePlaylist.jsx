@@ -22,7 +22,7 @@ const NotAccessiblePlaylist = () => {
   if (!current) return <div>loading</div>;
 
   return (
-    <div className="container my-4 mx-auto">
+    <div className="container my-4 px-4 lg:px-0 mx-auto">
       <Link to={routes.home} className="text-blue-500">
         Go Home
       </Link>
@@ -32,7 +32,7 @@ const NotAccessiblePlaylist = () => {
           <Video />
           <div className="my-4 text-3xl">{current.title}</div>
         </div>
-        <div className="w-[400px] ml-6">
+        <div className="w-[200px] md:w-[300px] lg:w-[400px] ml-6">
           {data.map((item) => (
             <div
               key={item.slug}
