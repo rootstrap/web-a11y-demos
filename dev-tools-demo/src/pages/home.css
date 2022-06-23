@@ -1,0 +1,7 @@
+.routes-container {
+  padding: 30px;
+}
+
+.routes-container * {
+  margin-bottom: 5px;
+}
