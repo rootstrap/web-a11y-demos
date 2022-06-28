@@ -1,7 +1,5 @@
 name: Unit tests
-defaults:
-  run:
-    working-directory: dev-tools-demo
+
 on:
   push:
     branches: [a11y-tools]
