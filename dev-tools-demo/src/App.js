@@ -9,6 +9,7 @@ import routes from "./routes";
 
 const App = () => (
   <BrowserRouter>
+    <p>Hola</p>
     <Switch>
       <Route
         path={routes.notAccessiblePlaylist()}
