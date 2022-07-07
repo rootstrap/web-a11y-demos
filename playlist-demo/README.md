@@ -4,6 +4,8 @@ This demo contains the implementation of a simple playlist. The "currently playi
 
 This demo is divided into **three** different implementations, considering going from not accessible at all, then somewhat accessible, and totally accessible. The purpose of this example is to understand the difference between each of these implementations.
 
+This demo was created to support the following [presentation](https://drive.google.com/file/d/16JeByVC1iShXWen_lQIK3lHLrWKHFm6V/view?usp=sharing)
+
 ## View the example in our code sandbox
 
 Visit [CodeSandbox demo](https://codesandbox.io/s/github/rootstrap/web-a11y-demos/tree/master/playlist-demo)
@@ -30,6 +32,7 @@ When we write semantically correct HTML, we’re letting the browser know what t
 - Good semantics for the labeling of texts using heading. The page title is using`<h1>` while the video title is using `<h2>`.
 - Good semantic for list creation using `<ol>` and wrapping each item with `<li>` tags.
 - Correct implementation on video links using `<a>` tags. Links are now accessible by using the keyboard or screen reader. But, there are still several improvements that can be made.
+- Wrapping links that correspond to navigation using `<nav>`
 
 ### "Totally" accessible
 
@@ -42,4 +45,3 @@ There are several mechanisms that can be used for hiding content. In this exampl
 - Use of `aria-hidden` to hide elements from screen readers.
 - Addition of visual information using `sr-only` class name.
 - `Helmet` to manage the document's head section.
-- Wrapping buttons that correspond to navigation using `<nav>`
