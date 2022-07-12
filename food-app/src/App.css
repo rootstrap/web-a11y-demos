@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h1,
+.h1 {
+  @apply mt-3 text-3xl font-extrabold;
+}
+
+h2,
+.h2 {
+  @apply mt-3 text-2xl font-extrabold;
+}
+
+h3,
+.h3 {
+  @apply mt-3 text-xl font-extrabold;
+}
+
+ul,
+.ul {
+  @apply mt-3 list-disc list-inside;
+}
+
+ol,
+.ol {
+  @apply mt-3 list-decimal list-inside;
+}
+
+p,
+.p {
+  @apply mb-3;
+}
+
+a,
+.link {
+  @apply text-orange-400 hover:underline hover:text-orange-600 active:text-orange-600;
+}
+
+.li {
+  display: list-item;
+}

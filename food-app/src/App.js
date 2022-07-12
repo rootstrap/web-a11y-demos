@@ -1,10 +1,26 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import { NavBar } from "./components/NavBar";
+import { AboutPage, AboutPageGoodSemantics, HomePage, MenuPage } from "./pages";
+import { routes } from "./utils/routes";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
-    </div>
+    <Router>
+      <img src="circle_1.png" className="absolute top-0 right-0 w-1/2 -z-50" />
+
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path={routes.MENU} element={<MenuPage />} />
+        <Route path={routes.ABOUT} element={<AboutPage />} />
+        <Route
+          path={routes.ABOUT_GOOD_SEMANTICS}
+          element={<AboutPageGoodSemantics />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
