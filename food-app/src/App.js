@@ -2,7 +2,14 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import { NavBar } from "./components/NavBar";
-import { AboutPage, AboutPageGoodSemantics, HomePage, MenuPage } from "./pages";
+import {
+  AboutPage,
+  AboutPageGoodSemantics,
+  HomePage,
+  HomePageAccessible,
+  MenuPage,
+  ContactPage,
+} from "./pages";
 import { routes } from "./utils/routes";
 
 function App() {
@@ -13,12 +20,14 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path={routes.HOME_ACCESSIBLE} element={<HomePageAccessible />} />
         <Route path={routes.MENU} element={<MenuPage />} />
         <Route path={routes.ABOUT} element={<AboutPage />} />
         <Route
           path={routes.ABOUT_GOOD_SEMANTICS}
           element={<AboutPageGoodSemantics />}
         />
+        <Route path={routes.CONTACT} element={<ContactPage />} />
       </Routes>
     </Router>
   );
