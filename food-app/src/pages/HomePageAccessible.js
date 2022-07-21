@@ -1,6 +1,9 @@
+import { Link } from "react-router-dom";
+import { routes } from "../utils/routes";
+
 export const HomePageAccessible = () => {
   return (
-    <div className="container px-4 mx-auto">
+    <section className="container px-4 mx-auto">
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-6xl font-extrabold">
@@ -13,13 +16,13 @@ export const HomePageAccessible = () => {
               111-111-1111
             </a>{" "}
             o{" "}
-            <a className="text-orange-400" href="/contacto">
+            <Link to={routes.CONTACT} className="text-orange-400">
               envianos un mensaje
-            </a>
+            </Link>
           </p>
         </div>
-        <img src="plate_of_food.png" className="w-1/2" />
+        <img src="plate_of_food.png" className="w-1/2" alt="" />
       </div>
-    </div>
+    </section>
   );
 };
