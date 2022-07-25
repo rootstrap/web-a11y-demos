@@ -8,7 +8,9 @@ export const ContactPage = () => {
       <div className="flex flex-col">
         <h1 className="text-3xl font-extrabold mb-5">Envianos un mensaje</h1>
         {sent ? (
-          <div>Tu mensaje fue enviado, te responderemos pronto.</div>
+          <div role="alert">
+            Tu mensaje fue enviado, te responderemos pronto.
+          </div>
         ) : (
           <form className="flex flex-col w-1/3" onSubmit={() => setSent(true)}>
             <label for="email" className="mt-5 mb-1">
@@ -40,7 +42,7 @@ export const ContactPage = () => {
               required
             />
             <button type="submit" className="bg-orange-400 rounded p-2 mt-5">
-              Envíar mensaje
+              Enviar mensaje
             </button>
           </form>
         )}
