@@ -9,6 +9,8 @@ import {
   HomePageAccessible,
   MenuPage,
   ContactPage,
+  GalleryPage,
+  GalleryPageAccessible,
 } from "./pages";
 import { routes } from "./utils/routes";
 
@@ -28,6 +30,11 @@ function App() {
           element={<AboutPageGoodSemantics />}
         />
         <Route path={routes.CONTACT} element={<ContactPage />} />
+        <Route path={routes.GALLERY} element={<GalleryPage />} />
+        <Route
+          path={routes.GALLERY_ACCESSIBLE}
+          element={<GalleryPageAccessible />}
+        />
       </Routes>
     </Router>
   );
