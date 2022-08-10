@@ -1,8 +1,15 @@
-export const ImageButton = ({ accessible, src, alt, onShowModal }) =>
-  accessible ? (
-    <button onClick={() => onShowModal(true)}>
-      <img src={src} alt={alt} />
+export const ImageButton = ({ src, alt, onOpenImage }) => {
+  const openImage = () => {
+    onOpenImage({ src, alt });
+  };
+
+  return (
+    <button
+      onClick={openImage}
+      aria-label="Ver imagen en tamaño completo"
+      aria-describedby="image"
+    >
+      <img src={src} alt={alt} id="image" />
     </button>
-  ) : (
-    <img src={src} alt={alt} onClick={() => onShowModal(true)} />
   );
+};

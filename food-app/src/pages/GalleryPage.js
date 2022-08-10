@@ -3,37 +3,23 @@ import { ImageButton } from "../components/ImageButton";
 import { Modal } from "../components/Modal";
 
 export const GalleryPage = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [modalImage, setModalImage] = useState(null);
+
+  const setImage = (image) => {
+    setModalImage(image);
+  };
 
   return (
     <section className="container px-4 mx-auto">
       <h1 className="text-3xl font-extrabold mb-5">Galería</h1>
       <div className="grid grid-cols-3 gap-4">
-        {showModal && <Modal onShowModal={setShowModal} />}
-        <ImageButton
-          src="https://pizzapalaceburwell.com/wp-content/uploads/2021/11/Food.jpg"
-          onShowModal={setShowModal}
-        />
-        <ImageButton
-          src="https://pizzapalaceburwell.com/wp-content/uploads/2021/11/Food.jpg"
-          onShowModal={setShowModal}
-        />
-        <ImageButton
-          src="https://pizzapalaceburwell.com/wp-content/uploads/2021/11/Food.jpg"
-          onShowModal={setShowModal}
-        />
-        <ImageButton
-          src="https://pizzapalaceburwell.com/wp-content/uploads/2021/11/Food.jpg"
-          onShowModal={setShowModal}
-        />
-        <ImageButton
-          src="https://pizzapalaceburwell.com/wp-content/uploads/2021/11/Food.jpg"
-          onShowModal={setShowModal}
-        />
-        <ImageButton
-          src="https://pizzapalaceburwell.com/wp-content/uploads/2021/11/Food.jpg"
-          onShowModal={setShowModal}
-        />
+        <Modal modalImage={modalImage} onCloseImage={setImage} />
+        <ImageButton src="/gallery/img1.jpg" onOpenImage={setImage} />
+        <ImageButton src="/gallery/img2.jpg" onOpenImage={setImage} />
+        <ImageButton src="/gallery/img3.jpg" onOpenImage={setImage} />
+        <ImageButton src="/gallery/img4.jpg" onOpenImage={setImage} />
+        <ImageButton src="/gallery/img5.jpg" onOpenImage={setImage} />
+        <ImageButton src="/gallery/img6.jpg" onOpenImage={setImage} />
       </div>
     </section>
   );
