@@ -16,7 +16,7 @@ import { routes } from "./utils/routes";
 function App() {
   return (
     <Router>
-      <img src="circle_1.png" className="absolute top-0 right-0 w-1/2 -z-50" />
+      <img src="/circle_1.png" className="absolute top-0 right-0 w-1/2 -z-50" />
 
       <NavBar />
       <main id="main">
