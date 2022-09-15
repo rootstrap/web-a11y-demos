@@ -22,15 +22,25 @@ function App() {
       <main id="main">
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path={routes.HOME_ACCESSIBLE} element={<HomePageAccessible />} />
+          <Route
+            path={routes.HOME_ACCESSIBLE}
+            element={<HomePageAccessible />}
+          />
           <Route path={routes.MENU} element={<MenuPage />} />
-          <Route path={routes.MENU_ACCESSIBLE} element={<MenuPageAccessible />} />
+          <Route
+            path={routes.MENU_ACCESSIBLE}
+            element={<MenuPageAccessible />}
+          />
           <Route path={routes.ABOUT} element={<AboutPage />} />
           <Route
             path={routes.ABOUT_GOOD_SEMANTICS}
             element={<AboutPageGoodSemantics />}
           />
           <Route path={routes.CONTACT} element={<ContactPage />} />
+          <Route
+            path={routes.CONTACT_ACCESSIBLE}
+            element={<ContactPage accessible />}
+          />
         </Routes>
       </main>
     </Router>
