@@ -8,6 +8,7 @@ import {
   HomePage,
   HomePageAccessible,
   MenuPage,
+  MenuPageAccessible,
   ContactPage,
 } from "./pages";
 import { routes } from "./utils/routes";
@@ -23,6 +24,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path={routes.HOME_ACCESSIBLE} element={<HomePageAccessible />} />
           <Route path={routes.MENU} element={<MenuPage />} />
+          <Route path={routes.MENU_ACCESSIBLE} element={<MenuPageAccessible />} />
           <Route path={routes.ABOUT} element={<AboutPage />} />
           <Route
             path={routes.ABOUT_GOOD_SEMANTICS}
