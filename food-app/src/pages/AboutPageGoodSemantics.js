@@ -1,6 +1,6 @@
 export const AboutPageGoodSemantics = () => {
   return (
-    <main>
+    <section>
       {" "}
       <div className="container px-4 mx-auto">
         <h1>¿Quiénes Somos?</h1>
@@ -78,6 +78,6 @@ export const AboutPageGoodSemantics = () => {
           docilitas, memoria;{" "}
         </p>
       </div>
-    </main>
+    </section>
   );
 };
