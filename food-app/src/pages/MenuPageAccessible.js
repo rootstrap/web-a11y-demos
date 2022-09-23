@@ -1,26 +1,30 @@
 import { menuData } from "../mock/menuData";
 
-export const MenuPageAccessible = () => {
-  return (
-    <section className="container px-4 mx-auto">
-      <h1>Menu</h1>
-      <div>
+import "./MenuPageAccessible.css";
+
+export const MenuPageAccessible = () => (
+  <div className="menu-background-overlay h-screen">
+    <section className="container px-4 mx-auto ">
+      <div className="menu-list">
+        <h1>Menu</h1>
+
         {Object.entries(menuData).map((dayMenuData) => {
           const [day, dayMenu] = dayMenuData;
           return (
             <div key={day}>
-              <h2>{day}</h2>
+              <h2 className="capitalize mt-6">{day}</h2>
               <ul>
                 {dayMenu.map((plate) => (
-                  <li key={plate.id}>{plate.nombre}</li>
+                  <li key={plate.id} className="mb-2">
+                    {plate.nombre}
+                  </li>
                 ))}
               </ul>
             </div>
           );
         })}
       </div>
-
       {/* TODO: add clickable tiles that open a modal to see more about recommended plates but use div with on click so keyboard users can't access the modal   */}
     </section>
-  );
-};
+  </div>
+);
