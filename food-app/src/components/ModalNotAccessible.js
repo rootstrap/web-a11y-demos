@@ -1,19 +1,21 @@
-import ReactModal from "react-modal";
+import { createPortal } from "react-dom";
 
 import { CloseIcon } from "./CloseIcon";
 
-export const Modal = ({ modalImage, onCloseImage }) => {
+export const ModalNotAccessible = (props) => {
+  return createPortal(<Modal {...props} />, document.getElementById("modal"));
+};
+
+const Modal = ({ modalImage, onCloseImage }) => {
   const closeModal = () => {
     onCloseImage(null);
   };
 
   return (
-    <div className="absolute" onClick={closeModal}>
-      <ReactModal
-        isOpen={!!modalImage?.src}
+    !!modalImage?.src && (
+      <div
         contentLabel="Imagen en tamaño completo"
-        className={`relative bg-black bg-opacity-80 w-full h-full flex justify-center items-center`}
-        onRequestClose={closeModal}
+        className={`fixed bg-black bg-opacity-80 left-0 top-0 w-full h-full flex justify-center items-center`}
         onClick={closeModal}
       >
         <div className="relative" onClick={(e) => e.stopPropagation()}>
@@ -27,7 +29,7 @@ export const Modal = ({ modalImage, onCloseImage }) => {
             <CloseIcon />
           </button>
         </div>
-      </ReactModal>
-    </div>
+      </div>
+    )
   );
 };

@@ -13,7 +13,7 @@ export const GalleryPageAccessible = () => {
     <section className="container px-4 mx-auto">
       <h1 className="text-3xl font-extrabold mb-5">Galería</h1>
       <div className="grid grid-cols-3 gap-4">
-        <Modal modalImage={modalImage} onCloseImage={setImage} accessible />
+        <Modal modalImage={modalImage} onCloseImage={setImage} />
         <ImageButton
           src="/gallery/img1.jpg"
           alt="Pizza de pepperoni grande"
