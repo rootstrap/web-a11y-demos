@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ContactPage = () => {
+export const ContactPage = ({ accessible }) => {
   const [sent, setSent] = useState(false);
 
   return (
@@ -13,33 +13,41 @@ export const ContactPage = () => {
           </div>
         ) : (
           <form className="flex flex-col w-1/3" onSubmit={() => setSent(true)}>
-            <label for="email" className="mt-5 mb-1">
-              Email
-            </label>
+            {accessible && (
+              <label for="email" className="mt-5 mb-1">
+                Email
+              </label>
+            )}
             <input
               type="email"
               id="email"
-              className="p-1 rounded bg-gray-50 border border-slate-300"
+              className="p-1 rounded bg-gray-50 border border-slate-300 mb-3"
               required
+              placeholder={accessible ? "" : "Email"}
             />
-            <label for="subject" className="mt-5 mb-1">
-              Motivo
-            </label>
+            {accessible && (
+              <label for="subject" className="mb-1">
+                Motivo
+              </label>
+            )}
             <select
               id="subject"
-              className="p-1 rounded bg-gray-50 border border-slate-300"
+              className="p-1 rounded bg-gray-50 border border-slate-300 mb-3"
             >
               <option value="1">Reserva</option>
               <option value="2">Consulta</option>
               <option value="3">Otros motivo</option>
             </select>
-            <label for="message" className="mt-5 mb-1">
-              Mensaje
-            </label>
+            {accessible && (
+              <label for="message" className="mb-1">
+                Mensaje
+              </label>
+            )}
             <textarea
               id="message"
-              className="p-1 h-48 rounded bg-gray-50 border border-slate-300 resize-none"
+              className="p-1 h-48 rounded bg-gray-50 border border-slate-300 resize-none mb-3"
               required
+              placeholder={accessible ? "" : "Mensaje"}
             />
             <button type="submit" className="bg-orange-400 rounded p-2 mt-5">
               Enviar mensaje
