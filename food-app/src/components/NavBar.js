@@ -27,6 +27,12 @@ export const NavBar = () => {
           >
             ¿Quiénes somos?
           </Link>
+          <Link
+            to={routes.GALLERY}
+            className="text-black hover:text-gray-800 active:text-gray-800"
+          >
+            Galería
+          </Link>
         </div>
       </div>
     </div>
