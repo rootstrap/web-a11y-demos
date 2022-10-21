@@ -4,7 +4,7 @@ import "./MenuPageAccessible.css";
 
 export const MenuPageAccessible = () => (
   <div className="menu-background-overlay h-screen">
-    <section className="container px-4 mx-auto ">
+    <section className="container px-4 mx-auto">
       <div className="menu-list">
         <h1>Menu</h1>
 
@@ -13,13 +13,13 @@ export const MenuPageAccessible = () => (
           return (
             <div key={day}>
               <h2 className="capitalize mt-6">{day}</h2>
-              <ul>
+              <ol>
                 {dayMenu.map((plate) => (
                   <li key={plate.id} className="mb-2">
                     {plate.nombre}
                   </li>
                 ))}
-              </ul>
+              </ol>
             </div>
           );
         })}

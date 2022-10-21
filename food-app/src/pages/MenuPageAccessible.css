@@ -1,16 +1,13 @@
 .menu-background-overlay {
   background-image: url("../background-tile.png");
   background-repeat: repeat;
+  height: auto;
 }
 
 .menu-list {
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 25%);
 
-}
-
-.menu-items{
-  
 }
 
 ul {
