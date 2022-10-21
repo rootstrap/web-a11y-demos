@@ -22,8 +22,12 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path={routes.HOME_ACCESSIBLE} element={<HomePageAccessible />} />
-        <Route path={routes.MENU} element={<MenuPage />} />
-        <Route path={routes.MENU_ACCESSIBLE} element={<MenuPageAccessible />} />
+        <Route exact path={routes.MENU} element={<MenuPage />} />
+        <Route
+          exact
+          path={routes.MENU_ACCESSIBLE}
+          element={<MenuPageAccessible />}
+        />
         <Route path={routes.ABOUT} element={<AboutPage />} />
         <Route
           path={routes.ABOUT_GOOD_SEMANTICS}
