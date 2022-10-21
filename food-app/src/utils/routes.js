@@ -6,4 +6,7 @@ export const routes = {
   ABOUT: "/quienes-somos",
   ABOUT_GOOD_SEMANTICS: "/quienes-somos-con-buena-semantica",
   CONTACT: "/contacto",
+  CONTACT_ACCESSIBLE: "/accesible/contacto",
+  GALLERY: "/galeria",
+  GALLERY_ACCESSIBLE: "/accesible/galeria",
 };
