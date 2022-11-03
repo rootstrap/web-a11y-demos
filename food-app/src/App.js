@@ -42,6 +42,7 @@ function App() {
           <Route
             path={routes.CONTACT_ACCESSIBLE}
             element={<ContactPage accessible />}
+          />
           <Route path={routes.GALLERY} element={<GalleryPage />} />
           <Route
             path={routes.GALLERY_ACCESSIBLE}
