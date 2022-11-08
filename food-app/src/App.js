@@ -23,26 +23,35 @@ function App() {
       <NavBar />
       <main id="main">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          {/* HOME */}
+          <Route path={routes.HOME} element={<HomePage />} />
           <Route
             path={routes.HOME_ACCESSIBLE}
             element={<HomePageAccessible />}
           />
+
+          {/* MENU */}
           <Route path={routes.MENU} element={<MenuPage />} />
           <Route
             path={routes.MENU_ACCESSIBLE}
             element={<MenuPageAccessible />}
           />
+
+          {/* ABOUT US */}
           <Route path={routes.ABOUT} element={<AboutPage />} />
           <Route
-            path={routes.ABOUT_GOOD_SEMANTICS}
+            path={routes.ABOUT_ACCESSIBLE}
             element={<AboutPageGoodSemantics />}
           />
+
+          {/* CONTACT */}
           <Route path={routes.CONTACT} element={<ContactPage />} />
           <Route
             path={routes.CONTACT_ACCESSIBLE}
             element={<ContactPage accessible />}
           />
+
+          {/* GALLERY */}
           <Route path={routes.GALLERY} element={<GalleryPage />} />
           <Route
             path={routes.GALLERY_ACCESSIBLE}
