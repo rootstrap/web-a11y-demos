@@ -17,31 +17,37 @@ export const GalleryPageAccessible = () => {
         <ImageButton
           src="/gallery/img1.jpg"
           alt="Pizza de pepperoni grande"
+          id="image1"
           onOpenImage={setImage}
         />
         <ImageButton
           src="/gallery/img2.jpg"
           alt="Hamburguesa doble con cheddar y bacon"
+          id="image2"
           onOpenImage={setImage}
         />
         <ImageButton
           src="/gallery/img3.jpg"
           alt="Fideos con salsa"
+          id="image3"
           onOpenImage={setImage}
         />
         <ImageButton
           src="/gallery/img4.jpg"
           alt="Tacos de carne"
+          id="image4"
           onOpenImage={setImage}
         />
         <ImageButton
           src="/gallery/img5.jpg"
           alt="Pollo frito con salsa"
+          id="image5"
           onOpenImage={setImage}
         />
         <ImageButton
           src="/gallery/img6.jpg"
           alt="Empanadas"
+          id="image6"
           onOpenImage={setImage}
         />
       </div>
