@@ -1,4 +1,4 @@
-export const ImageButton = ({ src, alt, onOpenImage }) => {
+export const ImageButton = ({ src, alt, id, onOpenImage }) => {
   const openImage = () => {
     onOpenImage({ src, alt });
   };
@@ -7,9 +7,9 @@ export const ImageButton = ({ src, alt, onOpenImage }) => {
     <button
       onClick={openImage}
       aria-label="Ver imagen en tamaño completo"
-      aria-describedby="image"
+      aria-describedby={id}
     >
-      <img src={src} alt={alt} id="image" />
+      <img src={src} alt={alt} id={id} />
     </button>
   );
 };
