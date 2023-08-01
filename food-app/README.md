@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Demo app para Workshop de Accesibilidad
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este proyecto fue creado con [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Como correr el proyecto
 
-In the project directory, you can run:
+Te recomendamos usar este [codesandbox](https://codesandbox.io/p/github/rootstrap/web-a11y-demos/a11y-workshop-food-app) por facilidad y hacer un fork propio para poder editarlo.
 
-### `npm start`
+Si te lo bajaste local en vez, vas a tener que correr los siguientes comandos:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```bash
+npm install
+```
+Para instalar las dependecias y luego esto para levantar el servidor en modo dev
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm start
+```
 
-### `npm test`
+Podés acceder al servidor que levantaste en [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Esta página se va a recargar automaticamente cuando hagas cambios en el código.
 
-### `npm run build`
+## Ejercicios del workshop
+### Ejercicios base
+#### 1: Agregar alt text a estas imágenes:
+  1. En `src/pages/HomePage.js` agregar alt text a `plate_of_food.png`
+  2. En `src/components/NavBar/NavBar.js` agregar alt text a `logo.png`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Si te preguntás como determinar el alt text, te recomendamos leer [este artículo](https://www.w3.org/WAI/tutorials/images/decision-tree/).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### 2: Transformar los items de la NavBar en links
+En `src/components/NavBar/NavBar.js` los "links" que tiene la barra de navegación no son realmente links. Esto hace que no se comporten como tal. ¿Podés encontrar que cosas no funcionan? Nosotros identificamos al menos 3.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Luego de identificar los problemas te invitamos a corregir el código para que se comporten como links.
 
-### `npm run eject`
+### Ejercicios avanzados
+#### 1: Hacer que el modal sea accesible con el teclado
+En `src/components/Modal/Modal.js` el modal no es accesible con el teclado. Discutir como debería de funcionar.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Para este tipo de interacciones más complejas es donde nos conviene hacer el uso de una libería que ya tenga accesibilidad tomada en cuenta. En este caso la librería que vamos a usar es [reakit](https://reakit.io/). Es una excelente libería que nos provee con varios componentes de uso común ya accesibles.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Instalá la librería con el siguiente comando:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm i reakit
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Y seguí la documentación para implementar el modal con el componente `Dialog` de reakit.
+ 
+#### 2: Mejorar la lectura del ¿Quiénes somos? para screen readers
 
-## Learn More
+En `src/pages/AboutPage.js` el texto de ¿Quiénes somos? no se lee bien para screen readers. ¿Podés identificar que es lo que no se lee bien? ¿Cómo lo podrías mejorar?
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Utiliza tags de heading como `h1`, `h2`, `h3`, etc. para mejorar la lectura por secciones.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Corrige la semántica de las listas con `ul` y `li` para que se lean mejor.
