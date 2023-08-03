@@ -1,5 +1,11 @@
+import {Helmet} from "react-helmet";
+
 export const AboutPageGoodSemantics = () => {
   return (
+    <>
+      <Helmet>
+        <title>Quiénes Somos | Food App</title>
+      </Helmet>
     <section>
       {" "}
       <div className="container px-4 mx-auto">
@@ -79,5 +85,6 @@ export const AboutPageGoodSemantics = () => {
         </p>
       </div>
     </section>
+    </>
   );
 };
