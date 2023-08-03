@@ -36,17 +36,17 @@ Luego de identificar los problemas te invitamos a corregir el código para que s
 
 ### Ejercicios avanzados
 #### 1: Hacer que el modal sea accesible con el teclado
-En `src/components/Modal/Modal.js` el modal no es accesible con el teclado. Discutir como debería de funcionar.
+En `src/components/Modal/ModalNotAccessible.js` el modal no es accesible con el teclado. Discutir como debería de funcionar.
 
-Para este tipo de interacciones más complejas es donde nos conviene hacer el uso de una libería que ya tenga accesibilidad tomada en cuenta. En este caso la librería que vamos a usar es [reakit](https://reakit.io/). Es una excelente libería que nos provee con varios componentes de uso común ya accesibles.
+Para este tipo de interacciones más complejas es donde nos conviene hacer el uso de una libería que ya tenga accesibilidad tomada en cuenta. En este caso la librería que vamos a usar es [react-modal](https://www.npmjs.com/package/react-modal).
 
 Instalá la librería con el siguiente comando:
 
 ```bash
-npm i reakit
+npm i react-modal
 ```
 
-Y seguí la documentación para implementar el modal con el componente `Dialog` de reakit.
+Y seguí la documentación para implementar el modal.
  
 #### 2: Mejorar la lectura del ¿Quiénes somos? para screen readers
 
