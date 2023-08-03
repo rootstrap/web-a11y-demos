@@ -14,7 +14,7 @@ export const NavBarAccessible = () => {
   return (
     <nav className="flex">
       <div className="container flex items-center px-4 mx-auto my-4">
-        <img src="/logo.png" className="mr-16" alt="logo" />
+        <img src="/logo.png" className="mr-16" alt="Food App logo" />
         <div className="flex space-x-16 text-2xl font-extrabold text-black hover:text-gray-800 active:text-gray-800">
           <SkipToMainContent />
           <Link
