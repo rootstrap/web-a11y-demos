@@ -1,5 +1,7 @@
-import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {Helmet} from "react-helmet";
+
+import "./App.css";
 
 import { NavBar } from "./components/NavBar";
 import {
@@ -18,6 +20,9 @@ import { routes } from "./utils/routes";
 function App() {
   return (
     <Router>
+      <Helmet>
+        <title>Food App</title>
+      </Helmet>
       <img src="/circle_1.png" className="absolute top-0 right-0 w-1/2 -z-50" />
 
       <NavBar />
