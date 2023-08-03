@@ -29,7 +29,6 @@ export const MenuPageAccessible = () => (
             );
           })}
         </div>
-        {/* TODO: add clickable tiles that open a modal to see more about recommended plates but use div with on click so keyboard users can't access the modal   */}
       </section>
     </div>
   </>
