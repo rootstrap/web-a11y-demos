@@ -21,7 +21,7 @@ export const ContactPage = ({ accessible }) => {
           ) : (
             <form className="flex flex-col w-1/3" onSubmit={() => setSent(true)}>
               {accessible && (
-                <label for="email" className="mt-5 mb-1">
+                <label htmlFor="email" className="mt-5 mb-1">
                   Email
                 </label>
               )}
@@ -33,7 +33,7 @@ export const ContactPage = ({ accessible }) => {
                 placeholder={accessible ? "" : "Email"}
               />
               {accessible && (
-                <label for="subject" className="mb-1">
+                <label htmlFor="subject" className="mb-1">
                   Motivo
                 </label>
               )}
@@ -46,7 +46,7 @@ export const ContactPage = ({ accessible }) => {
                 <option value="3">Otros motivo</option>
               </select>
               {accessible && (
-                <label for="message" className="mb-1">
+                <label htmlFor="message" className="mb-1">
                   Mensaje
                 </label>
               )}
