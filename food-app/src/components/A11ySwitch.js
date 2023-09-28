@@ -9,9 +9,9 @@ export const A11ySwitch = () => {
 
   const switchMode = () => {
     if (isAccessible) {
-      navigate(location.pathname.replace(ACCESSIBLE_SLUG, ''))
+      navigate(location.pathname.replace(ACCESSIBLE_SLUG, '') || '/')
     } else {
-      navigate(`${location.pathname}${ACCESSIBLE_SLUG}`)
+      navigate(location.pathname === '/' ? ACCESSIBLE_SLUG : `${location.pathname}${ACCESSIBLE_SLUG}`)
     }
   }
 
