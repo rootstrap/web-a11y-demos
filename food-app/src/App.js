@@ -16,6 +16,7 @@ import {
   GalleryPageAccessible,
 } from "./pages";
 import { routes } from "./utils/routes";
+import {A11ySwitch} from "./components/A11ySwitch";
 
 function App() {
   return (
@@ -64,6 +65,7 @@ function App() {
           />
         </Routes>
       </main>
+      <A11ySwitch />
     </Router>
   );
 }
